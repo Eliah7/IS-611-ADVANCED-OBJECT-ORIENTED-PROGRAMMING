@@ -60,7 +60,7 @@ public class ClubManager {
      * @param member
      */
     public void displayMemberPaymentHistory(Member member){
-        member.dispalyPaymentHistory();
+        member.displayPaymentHistory();
     }
 
 }

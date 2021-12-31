@@ -58,4 +58,8 @@ public class Member {
         return monthlyPaymentList;
     }
 
+    @Override
+    public String toString() {
+        return membershipNumber;
+    }
 }

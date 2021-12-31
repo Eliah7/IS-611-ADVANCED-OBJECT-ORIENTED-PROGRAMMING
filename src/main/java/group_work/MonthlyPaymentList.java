@@ -48,8 +48,8 @@ public class MonthlyPaymentList {
      */
     @Override
     public String toString() {
-        return "MonthlyPaymentList{" +
-                "monthlyPayments=" + monthlyPayments +
+        return "MonthlyPaymentList" +
+                 monthlyPayments +
                 ", nMAX=" + nMAX +
                 '}';
     }

@@ -21,11 +21,14 @@ public class MemberList {
           this.members = members;
      }
 
+     public boolean memberIsInList(Member member){
+          return this.members.stream().anyMatch(member1 -> member.getMembershipNumber().compareToIgnoreCase(member1.getMembershipNumber()) == 0);
+     }
      public int size(){
           return this.members.size();
      }
 
-     /**
+     /*
       *
       * @param member
       * @return
@@ -40,7 +43,11 @@ public class MemberList {
       * @return
       */
      public Boolean addMember(Member member){
-          return this.members.add(member);
+          if (!memberIsInList(member)){
+             return this.members.add(member);}
+          else{
+              return false;
+          }
      }
 
 
@@ -53,14 +60,17 @@ public class MemberList {
           return members.get(index);
      }
 
+     public Member getMember(Member member1){
+          return this.members.stream().filter(member -> member1.getMembershipNumber().compareToIgnoreCase(member.getMembershipNumber()) == 0).findFirst().get();
+     }
 
      @Override
      public String toString() {
-          String list = "MemberList { ";
+          String list = "";
           for (Member member: this.members) {
-               list += '\t' + member.toString();
+               list += '\n' + member.toString();
           }
-          list += "\n }";
+          list += "\n";
 
           return list;
      }
