@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class MemberList {
      // attributes
-     private ArrayList<Member> members;
+     public ArrayList<Member> members;
 
      /**
       * Constructor

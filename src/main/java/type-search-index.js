@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"group_work","l":"ClubManager"},{"p":"group_work","l":"CodingClub"},{"p":"group_work","l":"Member"},{"p":"group_work","l":"MemberList"},{"p":"group_work","l":"MonthlyPayment"},{"p":"group_work","l":"MonthlyPaymentList"}]

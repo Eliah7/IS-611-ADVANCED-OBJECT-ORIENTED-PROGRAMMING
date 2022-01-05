@@ -10,9 +10,12 @@ public class MonthlyPayment {
      * @param amount
      * @param month
      */
-    public MonthlyPayment(Double amount, int month) {
-        this.amount = amount;
-        this.month = month;
+    public MonthlyPayment(Double amount, int month)  {
+
+            this.amount = amount;
+            this.month = month;
+
+
     }
 
     /**
