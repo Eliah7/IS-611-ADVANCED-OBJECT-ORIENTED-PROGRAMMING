@@ -36,7 +36,7 @@ public class MemberList {
      public Boolean deleteMember(Member member1){
           String memberShipNo = member1.getMembershipNumber();
           if(this.members.stream().anyMatch(member -> member.getMembershipNumber().equalsIgnoreCase(memberShipNo))){
-               System.out.println("Member to be deleted");
+               //System.out.println("Member to be deleted");
                Member memberObj = this.members.stream()
                        .filter(member -> member.getMembershipNumber().equalsIgnoreCase(memberShipNo))
                        .findAny()
@@ -49,7 +49,7 @@ public class MemberList {
 
      public Boolean deleteMember(String memberShipNo){
           if(this.members.stream().anyMatch(member -> member.getMembershipNumber().equalsIgnoreCase(memberShipNo))){
-               System.out.println("Member to be deleted");
+               //System.out.println("Member to be deleted");
                Member memberObj = this.members.stream()
                        .filter(member -> member.getMembershipNumber().equalsIgnoreCase(memberShipNo))
                        .findAny()
@@ -87,6 +87,12 @@ public class MemberList {
           return this.members.stream().filter(member -> member1.getMembershipNumber().compareToIgnoreCase(member.getMembershipNumber()) == 0).findFirst().get();
      }
 
+     public Member getMemberByMembershipNo(String membershipNo){
+          return this.members.stream()
+                  .filter(member -> member.getMembershipNumber().compareToIgnoreCase(membershipNo) == 0)
+                  .findFirst()
+                  .get();
+     }
      @Override
      public String toString() {
           String list = "";

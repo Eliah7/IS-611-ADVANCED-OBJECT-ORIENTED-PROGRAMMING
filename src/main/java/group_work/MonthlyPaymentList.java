@@ -57,7 +57,7 @@ public class MonthlyPaymentList {
     /**
      *
      */
-    public void displayMonthlyPaymentList(){
+    public void displayPaymentHistoryAsString(){
         System.out.println(this.toString());
     }
 
