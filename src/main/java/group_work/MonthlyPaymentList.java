@@ -49,7 +49,7 @@ public class MonthlyPaymentList {
     @Override
     public String toString() {
         return "MonthlyPaymentList" +
-                 monthlyPayments +
+                monthlyPayments +
                 ", nMAX=" + nMAX +
                 '}';
     }
@@ -65,7 +65,7 @@ public class MonthlyPaymentList {
      *
      */
     public void displayPaymentHistory(){
-        System.out.println(this);
+//        System.out.println(this);
         System.out.println("=== PAYMENT HISTORY === ");
 
         for (MonthlyPayment monthlyPayment: monthlyPayments) {

@@ -19,8 +19,8 @@ public class ClubManagerTester {
             System.out.println("[1] ADD MEMBER");
             System.out.println("[2] DELETE MEMBER");
             System.out.println("[3] LIST MEMBERS");
-//            System.out.println("[4] RECORD PAYMENT FOR MEMBER");
-//            System.out.println("[5] PAYMENT HISTORY FOR MEMBER");
+            System.out.println("[4] RECORD PAYMENT FOR MEMBER");
+            System.out.println("[5] PAYMENT HISTORY FOR MEMBER");
             System.out.println("[6] Quit");
             System.out.println();
             System.out.print("Enter a choice [1-6]: ");
@@ -56,10 +56,47 @@ public class ClubManagerTester {
                 }
                 case "4": {
 
+                    System.out.println("ENTER THE MEMBERSHIP NO OF THE MEMBER");
+                    String membershipNo = scanner.next();
+                    Member member = new Member(membershipNo);
+
+                    System.out.println("ENTER THE MONTH (1-12)");
+                    int month = scanner.nextInt();
+
+                    if (month <= 12 && month > 0) {
+                        System.out.println("ENTER THE AMOUNT");
+                        Double amount = scanner.nextDouble();
+                        if(amount > 0) {
+                            MonthlyPayment monthlyPayment = new MonthlyPayment(amount, month);
+                            if(memberList.members.stream().anyMatch(member1 -> member1.getMembershipNumber().equalsIgnoreCase(membershipNo))){
+                                Member member1 = memberList.members.stream()
+                                        .filter(member2 -> member2.getMembershipNumber().equalsIgnoreCase(membershipNo))
+                                        .findAny().get();
+                                clubManager.recordPayment(monthlyPayment, member1);
+                            } else {
+                                System.out.println("MEMBER NOT IN LIST");
+                            }
+
+                        } else{
+                            System.out.println("AMOUNT CAN NOT BE NEGATIVE OR ZERO");
+                        }
+                    } else {
+                        System.out.println("MONTH HAS TO BE BETWEEN 1 AND 12");
+                    }
                     break;
                 }
                 case "5": {
-
+                    System.out.println("ENTER THE MEMBERSHIP NO OF THE MEMBER");
+                    String membershipNo = scanner.next();
+                    Member member = new Member(membershipNo);
+                    if(memberList.members.stream().anyMatch(member1 -> member1.getMembershipNumber().equalsIgnoreCase(membershipNo))){
+                        Member member1 = memberList.members.stream()
+                                .filter(member2 -> member2.getMembershipNumber().equalsIgnoreCase(membershipNo))
+                                .findAny().get();
+                        clubManager.displayMemberPaymentHistory(member1);
+                    } else {
+                        System.out.println("MEMBER NOT IN LIST");
+                    }
                     break;
                 }
                 case "6":
