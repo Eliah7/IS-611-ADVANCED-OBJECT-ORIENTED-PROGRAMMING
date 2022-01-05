@@ -33,10 +33,33 @@ public class MemberList {
       * @param member
       * @return
       */
-     public Boolean deleteMember(Member member){
-          return this.members.remove(member);
+     public Boolean deleteMember(Member member1){
+          String memberShipNo = member1.getMembershipNumber();
+          if(this.members.stream().anyMatch(member -> member.getMembershipNumber().equalsIgnoreCase(memberShipNo))){
+               System.out.println("Member to be deleted");
+               Member memberObj = this.members.stream()
+                       .filter(member -> member.getMembershipNumber().equalsIgnoreCase(memberShipNo))
+                       .findAny()
+                       .get();
+               return this.members.remove(memberObj);
+          } else {
+               return false;
+          }
      }
 
+     public Boolean deleteMember(String memberShipNo){
+          if(this.members.stream().anyMatch(member -> member.getMembershipNumber().equalsIgnoreCase(memberShipNo))){
+               System.out.println("Member to be deleted");
+               Member memberObj = this.members.stream()
+                       .filter(member -> member.getMembershipNumber().equalsIgnoreCase(memberShipNo))
+                       .findAny()
+                       .get();
+               return this.members.remove(memberObj);
+          } else {
+               return false;
+          }
+
+     }
      /**
       *
       * @param member

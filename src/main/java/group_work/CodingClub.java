@@ -84,6 +84,7 @@ public class CodingClub {
                     String membershipNo = scanner.next();
                     Member member = new Member(membershipNo);
                     if(codingClub.memberList.memberIsInList(member)){
+                        System.out.println("MEMBER IS IN LIST");
                         codingClub.deleteMember(member);
                     } else {
                         System.out.println("MEMBER IS NOT PRESENT IN THE LIST");
@@ -99,7 +100,7 @@ public class CodingClub {
                     String membershipNo = scanner.next();
                     Member member = new Member(membershipNo);
 
-                    System.out.println("ENTER THE MONTH");
+                    System.out.println("ENTER THE MONTH (1-12)");
                     int month = scanner.nextInt();
 
                     if (month <= 12 && month > 0){
