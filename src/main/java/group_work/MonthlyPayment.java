@@ -1,7 +1,9 @@
 package group_work;
 
 public class MonthlyPayment {
-    // attributes
+    /**
+     * attributes
+     */
     private Double amount;
     private int month;
 
@@ -15,11 +17,10 @@ public class MonthlyPayment {
             this.amount = amount;
             this.month = month;
 
-
     }
 
     /**
-     *
+     * Returns amount
      * @return
      */
     public Double getAmount() {
@@ -27,7 +28,7 @@ public class MonthlyPayment {
     }
 
     /**
-     *
+     * Returns month of payment
      * @return
      */
     public int getMonth() {

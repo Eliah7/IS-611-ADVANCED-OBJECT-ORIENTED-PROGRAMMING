@@ -3,7 +3,9 @@ package group_work;
 import java.util.UUID;
 
 public class Member {
-    // attributes
+    /**
+     * Attributes
+     */
     private String membershipNumber;
     private MonthlyPaymentList monthlyPaymentList;
 
@@ -16,7 +18,7 @@ public class Member {
     }
 
     /**
-     *
+     * Constructor that accept membershipNo as param
      * @param membershipNumber
      */
     public Member(String membershipNumber) {
@@ -25,7 +27,7 @@ public class Member {
     }
 
     /**
-     *
+     * Constructor that accept membershipNo and paymentList
      * @param membershipNumber
      * @param monthlyPaymentList
      */
@@ -35,25 +37,33 @@ public class Member {
     }
 
     /**
-     *
+     * Display payment history
      */
     public void displayPaymentHistory(){
        this.monthlyPaymentList.displayPaymentHistory();
     }
 
     /**
-     *
+     * Adds payment to the payment List
      * @param payment
-     * @return
+     * @return boolean
      */
     public boolean recordPayment(MonthlyPayment payment){
         return this.monthlyPaymentList.add(payment);
     }
 
+    /**
+     * Gets Membership Number
+     * @return membershipNumber:String
+     */
     public String getMembershipNumber() {
         return membershipNumber;
     }
 
+    /**
+     * Gets monthly payment List
+     * @return
+     */
     public MonthlyPaymentList getMonthlyPaymentList() {
         return monthlyPaymentList;
     }

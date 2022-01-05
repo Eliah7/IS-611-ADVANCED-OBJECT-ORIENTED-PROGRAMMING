@@ -3,7 +3,7 @@ package group_work;
 public class ClubManager {
 
     /**
-     *
+     * Adds a member to the member list
      * @param member
      * @param memberList
      * @return
@@ -14,7 +14,7 @@ public class ClubManager {
     }
 
     /**
-     *
+     * Remove member from the list using Index
      * @param memberIndex
      * @param memberList
      * @return
@@ -27,7 +27,7 @@ public class ClubManager {
     }
 
     /**
-     *
+     * Remove member from the list using member object
      * @param member
      * @param memberList
      * @return
@@ -38,7 +38,7 @@ public class ClubManager {
     }
 
     /**
-     *
+     * Display list of members
      * @param memberList
      */
     public void listAllMembers(MemberList memberList){
@@ -46,7 +46,7 @@ public class ClubManager {
     }
 
     /**
-     *
+     * Adds member payment for  a certain month
      * @param payment
      * @param member
      * @return
@@ -56,7 +56,7 @@ public class ClubManager {
     }
 
     /**
-     *
+     * Display member payment history
      * @param member
      */
     public void displayMemberPaymentHistory(Member member){

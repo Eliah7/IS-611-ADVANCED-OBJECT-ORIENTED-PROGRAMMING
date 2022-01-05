@@ -2,8 +2,11 @@ package group_work;
 
 import java.util.ArrayList;
 
+
 public class MonthlyPaymentList {
-    // attributes
+    /**
+     * attributes
+     */
     private ArrayList<MonthlyPayment> monthlyPayments;
     private final int nMAX = 12;
 
@@ -23,9 +26,9 @@ public class MonthlyPaymentList {
     }
 
     /**
-     *
+     * Adds new payment to the payment list
      * @param payment
-     * @return
+     * @return boolean
      */
     public Boolean add(MonthlyPayment payment){
         // check if monthly payment month <= 12 and > 1
@@ -43,29 +46,16 @@ public class MonthlyPaymentList {
     }
 
     /**
-     *
-     * @return
-     */
-    @Override
-    public String toString() {
-        return "MonthlyPaymentList" +
-                monthlyPayments +
-                ", nMAX=" + nMAX +
-                '}';
-    }
-
-    /**
-     *
+     * Display Payemnt History as String
      */
     public void displayPaymentHistoryAsString(){
         System.out.println(this.toString());
     }
 
     /**
-     *
+     * Display Payemnt History
      */
     public void displayPaymentHistory(){
-//        System.out.println(this);
         System.out.println("=== PAYMENT HISTORY === ");
 
         for (MonthlyPayment monthlyPayment: monthlyPayments) {
@@ -73,5 +63,13 @@ public class MonthlyPaymentList {
         }
         System.out.println("=== PAYMENT HISTORY === ");
 
+    }
+
+    @Override
+    public String toString() {
+        return "MonthlyPaymentList" +
+                monthlyPayments +
+                ", nMAX=" + nMAX +
+                '}';
     }
 }
