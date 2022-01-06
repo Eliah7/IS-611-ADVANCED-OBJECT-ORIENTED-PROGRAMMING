@@ -6,6 +6,7 @@ public class Member {
     /**
      * Attributes
      */
+    private String memberName;
     private String membershipNumber;
     private MonthlyPaymentList monthlyPaymentList;
 
@@ -13,6 +14,7 @@ public class Member {
      * Constructor
      */
     public Member() {
+        this.memberName = "New Member";
         this.membershipNumber =  UUID.randomUUID().toString();
         this.monthlyPaymentList = new MonthlyPaymentList();
     }
@@ -22,6 +24,18 @@ public class Member {
      * @param membershipNumber
      */
     public Member(String membershipNumber) {
+        this.memberName = "New Member";
+        this.membershipNumber = membershipNumber;
+        this.monthlyPaymentList = new MonthlyPaymentList();
+    }
+
+    /**
+     * Constructor that accept membershipNo and the name of the member
+     * @param membershipNumber
+     * @param name
+     */
+    public Member(String membershipNumber, String name) {
+        this.memberName = name;
         this.membershipNumber = membershipNumber;
         this.monthlyPaymentList = new MonthlyPaymentList();
     }
@@ -32,6 +46,7 @@ public class Member {
      * @param monthlyPaymentList
      */
     public Member(String membershipNumber, MonthlyPaymentList monthlyPaymentList) {
+        this.memberName = "New Member";
         this.membershipNumber = membershipNumber;
         this.monthlyPaymentList = monthlyPaymentList;
     }
@@ -61,6 +76,14 @@ public class Member {
     }
 
     /**
+     * Returns the name of the member
+     * @return memberName: String
+     */
+    public String getMemberName() {
+        return memberName;
+    }
+
+    /**
      * Gets monthly payment List
      * @return
      */
@@ -70,6 +93,6 @@ public class Member {
 
     @Override
     public String toString() {
-        return membershipNumber;
+        return membershipNumber + " --> " + memberName;
     }
 }

@@ -31,9 +31,14 @@ public class CodingClubTester {
                     case "1": {
                         System.out.println("ENTER THE MEMBERSHIP NO OF THE MEMBER");
                         String membershipNo = scanner.next();
-                        Member member = new Member(membershipNo);
+                        System.out.println("ENTER THE NAME OF THE MEMBER");
+                        String memberName = scanner.next();
+                        Member member = new Member(membershipNo, memberName);
                         codingClub.addMember(member);
-                        System.out.println("MEMBER NO " + member.getMembershipNumber() + " SUCCESSFULLY ADDED");
+                        System.out.println("["
+                                + member.getMembershipNumber()+ ","
+                                + member.getMemberName()+ "] "
+                                + "SUCCESSFULLY ADDED");
                         System.out.println("=======================================");
                         break;
                     }
