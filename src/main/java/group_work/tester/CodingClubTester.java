@@ -33,19 +33,26 @@ public class CodingClubTester {
                         String membershipNo = scanner.next();
                         Member member = new Member(membershipNo);
                         codingClub.addMember(member);
+                        System.out.println("MEMBER NO " + member.getMembershipNumber() + " SUCCESSFULLY ADDED");
+                        System.out.println("=======================================");
                         break;
                     }
 
                     case "2": {
+                        System.out.println("PICK ONE FROM THE LIST BELOW (If any)");
+                        System.out.println("--------------------------------------");
                         codingClub.listMembers();
                         System.out.println("ENTER THE MEMBERSHIP NO OF THE MEMBER");
                         String membershipNo = scanner.next();
                         Member member = new Member(membershipNo);
                         if (codingClub.memberList.memberIsInList(member)) {
-                            System.out.println("MEMBER IS IN LIST");
+                            System.out.println("MEMBER IS IN THE LIST...");
                             codingClub.deleteMember(member);
+                            System.out.println("MEMBER NO " +member.getMembershipNumber() +" SUCCESSFULLY DELETED FROM THE LIST");
+                            System.out.println("=======================================");
                         } else {
-                            System.out.println("MEMBER IS NOT PRESENT IN THE LIST");
+                            System.out.println("SORRY, MEMBER IS NOT PRESENT IN THE LIST");
+                            System.out.println("=======================================");
                         }
                         break;
                     }
@@ -73,6 +80,7 @@ public class CodingClubTester {
                         } else {
                             System.out.println("MONTH HAS TO BE BETWEEN 1 AND 12");
                         }
+                        System.out.println("=======================================");
                         break;
                     }
                     case "5": {
@@ -88,7 +96,7 @@ public class CodingClubTester {
                         break;
                     }
                     case "6":
-                        System.out.println("PROGRAM COMPLETE");
+                        System.out.println("PROGRAM COMPLETED. GOODBYE\uD83D\uDD90️");
                         break;
                     default:
                         System.out.print("1-6 only");

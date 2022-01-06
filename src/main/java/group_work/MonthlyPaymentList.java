@@ -46,18 +46,21 @@ public class MonthlyPaymentList {
     }
 
     /**
-     * Display Payemnt History as String
+     * Display payment History as String
      */
     public void displayPaymentHistoryAsString(){
         System.out.println(this.toString());
     }
 
     /**
-     * Display Payemnt History
+     * Display payment History
      */
     public void displayPaymentHistory(){
         System.out.println("=== PAYMENT HISTORY === ");
 
+        if(monthlyPayments.size() == 0){
+            System.out.println('\t' +"NO PAYMENT FOUND.");
+        }
         for (MonthlyPayment monthlyPayment: monthlyPayments) {
             System.out.println('\t' + monthlyPayment.toString());
         }
