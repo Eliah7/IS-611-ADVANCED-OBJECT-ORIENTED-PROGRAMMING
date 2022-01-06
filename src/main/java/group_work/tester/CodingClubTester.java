@@ -29,7 +29,6 @@ public class CodingClubTester {
 
                 switch (choice) {
                     case "1": {
-                        // request user details of member
                         System.out.println("ENTER THE MEMBERSHIP NO OF THE MEMBER");
                         String membershipNo = scanner.next();
                         Member member = new Member(membershipNo);
