@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="670.0" styleClass="main" stylesheets="@../assets/css/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="436.0" prefWidth="163.0" spacing="20.0">
+         <children>
+            <Pane prefHeight="94.0" prefWidth="155.0">
+               <children>
+                  <Circle layoutX="82.0" layoutY="47.0" radius="29.0" strokeType="INSIDE">
+                     <stroke>
+                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.5551900863647461" green="0.5551900863647461" blue="0.6447368264198303" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" opacity="0.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </RadialGradient>
+                     </stroke>
+                     <fill>
+                        <RadialGradient centerX="0.5" centerY="0.4239904988123515" focusDistance="0.11560693641618491" radius="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.11999999731779099" green="0.19139860570430756" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </RadialGradient>
+                     </fill>
+                  </Circle>
+                  <Text fill="WHITE" layoutX="69.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Club" />
+               </children>
+            </Pane>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0" stylesheets="@../assets/css/main.css">
+               <children>
+                  <JFXButton buttonType="RAISED" prefHeight="31.0" prefWidth="167.0">
+                     <graphic>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                 <image>
+                                    <Image url="@../assets/images/dashboard_black_24dp%201.png" />
+                                 </image>
+                              </ImageView>
+                              <Label minHeight="-Infinity" minWidth="-Infinity" text="Dashboard" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" prefHeight="31.0" prefWidth="167.0">
+                     <graphic>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                 <image>
+                                    <Image url="@../assets/images/list_black_24dp%201.png" />
+                                 </image>
+                              </ImageView>
+                              <Label minHeight="-Infinity" minWidth="-Infinity" text="Members" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" prefHeight="31.0" prefWidth="167.0">
+                     <graphic>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                 <image>
+                                    <Image url="@../assets/images/list_black_24dp%201.png" />
+                                 </image>
+                              </ImageView>
+                              <Label minHeight="-Infinity" minWidth="-Infinity" text="Contribution" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </VBox>
+
+         </children>
+      </VBox>
+      <VBox layoutX="163.0" prefHeight="436.0" prefWidth="507.0" styleClass="content" stylesheets="@../assets/css/main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label stylesheets="@../assets/css/main.css" text="Members" textFill="WHITE" />
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <JFXTreeTableView />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding></VBox>
+   </children>
+</AnchorPane>

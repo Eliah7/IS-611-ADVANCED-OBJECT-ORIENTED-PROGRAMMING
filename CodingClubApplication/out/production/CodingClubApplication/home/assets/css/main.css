@@ -1,0 +1,20 @@
+.main{
+    width: 100%;
+    height: 100%;
+
+    /*-fx-background-color: linear-gradient(180deg, 0%,  52.6%,  100%);*/
+    -fx-background-color: linear-gradient(to bottom left, #DED8F0,rgba(171, 140, 216, 0.473958), rgba(194, 136, 123, 0.22));
+}
+
+.content{
+    /*-fx-background-color: linear-gradient(90deg,  0.32%, rgba(195, 177, 211, 0) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0.58) 0%, rgba(230, 225, 243, 0.75) 55.73%, rgba(123, 194, 190, 0.71) 100%);*/
+    -fx-background-color: linear-gradient(to bottom left, rgba(137, 98, 194, 0),rgba(255, 255, 255, 0.58), rgba(230, 225, 243, 0.75), rgba(123, 194, 190, 0.71));
+    -fx-background-radius: 15 0 0 15;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.25), 10, 0, 4, 4);
+    width: 100%;
+    height: 100%;
+}
+
+.nav{
+
+}

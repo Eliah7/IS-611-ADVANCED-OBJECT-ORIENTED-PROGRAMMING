@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @author: Group 2
  * @version 1.0
  */
-public class CodingClub {
+public class CodingClubs {
     /**
      * attributes
      */
@@ -17,7 +17,7 @@ public class CodingClub {
     /**
      * Constructor
      */
-    public CodingClub() {
+    public CodingClubs() {
         this.clubManager = new ClubManager();
         this.memberList = new MemberList();
     }
