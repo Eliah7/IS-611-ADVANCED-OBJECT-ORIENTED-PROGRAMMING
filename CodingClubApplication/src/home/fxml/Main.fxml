@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
@@ -109,38 +111,73 @@
 
          </children>
       </VBox>
-      <VBox fx:id="vboxContent" layoutX="163.0" prefHeight="436.0" styleClass="content" stylesheets="@../assets/css/main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="163.0" styleClass="content" stylesheets="@../assets/css/main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="lblContent" styleClass="lbl-members" stylesheets="@../assets/css/main.css" text="Members" textFill="#8962c2">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-            <StackPane>
+            <AnchorPane styleClass="content" stylesheets="@../assets/css/main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <VBox fx:id="vBoxDashboard" prefWidth="100.0">
+                  <Label fx:id="lblContent" styleClass="lbl-members" stylesheets="@../assets/css/main.css" text="Members" textFill="#8962c2">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="paneContributions" layoutY="29.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="lblContent1" styleClass="lbl-members" stylesheets="@../assets/css/main.css" text="Dashboard" textFill="#8962c2">
+                        <Label fx:id="lblContent11" styleClass="lbl-members" stylesheets="@../assets/css/main.css" text="Contributions" textFill="#8962c2">
                            <font>
                               <Font size="26.0" />
                            </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
                         </Label>
                      </children>
-                  </VBox>
-                  <VBox fx:id="vBoxMembers" prefWidth="100.0">
+                     <styleClass>
+                        <String fx:value="contributions" />
+                        <String fx:value="content" />
+                     </styleClass>
+                  </Pane>
+                  <Pane fx:id="paneDashboard" layoutY="29.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="lblContent11" styleClass="lbl-members" stylesheets="@../assets/css/main.css" text="Members" textFill="#8962c2">
+                        <Label fx:id="lblContent111" styleClass="lbl-members" stylesheets="@../assets/css/main.css" text="Dashboard" textFill="#8962c2">
                            <font>
                               <Font size="26.0" />
                            </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
                         </Label>
                      </children>
-                  </VBox>
+                     <styleClass>
+                        <String fx:value="contributions" />
+                        <String fx:value="content" />
+                     </styleClass>
+                  </Pane>
+                  <Pane fx:id="paneMembers" layoutY="29.0" stylesheets="@../assets/css/main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="lblContent1" styleClass="lbl-members" stylesheets="@../assets/css/main.css" text="Members" textFill="#8962c2">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </Label>
+                        <TableView fx:id="membersTable" layoutY="44.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="507.0">
+                          <columns>
+                            <TableColumn fx:id="tbclRegistrationNo" prefWidth="75.0" text="No" />
+                            <TableColumn fx:id="tbclName" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="tbclActions" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="78.0" text="Actions" />
+                          </columns>
+                        </TableView>
+                     </children>
+                     <styleClass>
+                        <String fx:value="members" />
+                        <String fx:value="content" />
+                     </styleClass>
+                  </Pane>
                </children>
-            </StackPane>
+            </AnchorPane>
          </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding></VBox>
+      </AnchorPane>
    </children>
 </AnchorPane>

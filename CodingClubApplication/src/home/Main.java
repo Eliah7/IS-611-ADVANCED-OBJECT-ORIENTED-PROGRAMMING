@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
@@ -12,6 +13,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("fxml/Main.fxml"));
         primaryStage.setTitle("Club Application");
+        primaryStage.setResizable(true);
+//        primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setScene(new Scene(root, 1000, 700));
         primaryStage.show();
     }
