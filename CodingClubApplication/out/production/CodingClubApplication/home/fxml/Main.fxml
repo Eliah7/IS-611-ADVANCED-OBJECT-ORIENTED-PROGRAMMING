@@ -106,14 +106,13 @@
                               </Label>
                               <HBox prefHeight="100.0" prefWidth="200.0" styleClass="action-tab">
                                  <children>
-                                    <JFXButton ripplerFill="#6460da" styleClass="btn" text="ADD MEMBER" textFill="WHITE" />
+                                    <JFXButton fx:id="btnShowAddMember" onAction="#handleClicks" ripplerFill="#6460da" styleClass="btn" text="ADD MEMBER" textFill="WHITE" />
                                  </children>
                               </HBox>
-                              <TableView fx:id="membersTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="700.0" style="-fx-border-color: #fff; -fx-background-color: #fff;">
+                              <TableView fx:id="membersTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: #fff; -fx-background-color: #fff;">
                                 <columns>
                                   <TableColumn fx:id="tbclRegistrationNo" prefWidth="116.85200500488281" text="No" />
-                                  <TableColumn fx:id="tbclName" prefWidth="372.64794921875" text="Name" />
-                                    <TableColumn fx:id="tbclActions" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="210.49923706054688" text="Actions" />
+                                  <TableColumn fx:id="tbclName" prefWidth="151.0484619140625" text="Name" />
                                 </columns>
                               </TableView>
                            </children>

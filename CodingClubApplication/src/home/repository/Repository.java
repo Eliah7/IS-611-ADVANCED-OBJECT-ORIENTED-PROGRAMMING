@@ -3,6 +3,7 @@ package home.repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
+import home.domain.Member;
 
 import java.util.List;
 import java.util.Map;
@@ -30,12 +31,8 @@ public abstract class Repository<T> {
         return result.isDone();
     }
 
-    public void delete(){
+    public abstract boolean delete(T element) throws Exception;
 
-    }
-
-    public void size(){
-
-    }
+    public abstract int size();
 
 }

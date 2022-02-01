@@ -1,5 +1,6 @@
 package home.domain;
 
+import javax.swing.*;
 import java.util.UUID;
 
 public class Member {

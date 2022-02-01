@@ -1,5 +1,6 @@
 package home;
 
+import home.controllers.Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +13,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("fxml/Main.fxml"));
+
+        Controller.pStage = primaryStage;
+
         primaryStage.setTitle("Club Application");
         primaryStage.setResizable(true);
 //        primaryStage.initStyle(StageStyle.TRANSPARENT);

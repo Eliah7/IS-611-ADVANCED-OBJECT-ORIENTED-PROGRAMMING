@@ -1,51 +1,36 @@
 package home.controllers;
 
-import com.google.api.core.ApiFuture;
-import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.cloud.FirestoreClient;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTreeTableView;
 import home.domain.Member;
 import home.repository.MemberRepository;
+import home.services.MemberService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.shape.Circle;
-import javafx.scene.text.Text;
 
 import javafx.event.ActionEvent;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-
-
     @FXML
     private JFXButton btnMembers;
 
 
     @FXML
     private Label lblContent;
-
 
 
     @FXML
@@ -63,34 +48,134 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn<Member, String> tbclRegistrationNo;
 
-//    @FXML
-//    private TableColumn<Member, String> tblclAmount;
+    @FXML
+    private JFXButton btnShowAddMember;
+
+    @FXML
+    private JFXButton btnAddMember;
+
+    @FXML
+    private TextField txtMembershipNo;
+
+    @FXML
+    private TextField txtName;
 
     private ObservableList<Member> data;
 
+    public static Stage pStage;
+    private URL location;
+    private ResourceBundle resources;
+    private MemberService memberService;
+    private static Stage dialogStage;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        this.location = location;
+        this.resources = resources;
         // fetch data from db
-        MemberRepository memberRepository = new MemberRepository();
+        System.out.println(location.getPath());
+        memberService = new MemberService();
         try {
-            System.out.println(memberRepository.getAll());
+            if(location.getPath().contains("home/fxml/add_member.fxml")){
+
+            } else {
+                updateTable();
+                System.out.println(memberService.getAllMembers());
 //            System.out.println(memberRepository.add(new Member("33434", "Jane Mbwilo")));
 
+                tbclName.setCellValueFactory(new PropertyValueFactory<>("memberName"));
+                tbclRegistrationNo.setCellValueFactory(new PropertyValueFactory<>("membershipNumber"));
+//            tbclActions.setCellValueFactory(new PropertyValueFactory<>("actions"));
 
-            tbclActions.setCellValueFactory(new PropertyValueFactory<>(""));
-            tbclName.setCellValueFactory(new PropertyValueFactory<>("memberName"));
-            tbclRegistrationNo.setCellValueFactory(new PropertyValueFactory<>("membershipNumber"));
-    //        tblclAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-    //        data = FXCollections.observableArrayList(
-    //
-    //        );
-            data = FXCollections.observableArrayList(memberRepository.getAll());
-            membersTable.setItems(data);
+                addButtonToTable(MemberService.Delete);
+                addButtonToTable(MemberService.Edit);
+                addButtonToTable(MemberService.VIEW_CONTRIBUTIONS);
+                addButtonToTable(MemberService.PAY);
+
+                data = FXCollections.observableArrayList(memberService.getAllMembers());
+                membersTable.setItems(data);
+            }
+
         } catch (Exception e){
             e.printStackTrace();
         }
     }
 
+    private void addButtonToTable(String columnName) {
+        TableColumn<Member, Void> colBtn = new TableColumn(columnName);
+
+        Callback<TableColumn<Member, Void>, TableCell<Member, Void>> cellFactory = new Callback<TableColumn<Member, Void>, TableCell<Member, Void>>() {
+            @Override
+            public TableCell<Member, Void> call(final TableColumn<Member, Void> param) {
+                final TableCell<Member, Void> cell = new TableCell<Member, Void>() {
+
+                    private final Button btn = new Button(columnName);
+
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            Member data = getTableView().getItems().get(getIndex());
+                            executeTableAction(columnName, data);
+                            System.out.println("selectedData: " + data);
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+
+        colBtn.setCellFactory(cellFactory);
+
+
+        membersTable.getColumns().add(colBtn);
+
+    }
+
+    private void updateTable() throws Exception{
+        data = FXCollections.observableArrayList(memberService.getAllMembers());
+        membersTable.setItems(data);
+    }
+
+    @FXML
+    private void executeTableAction(String columnName, Member data) {
+        try {
+            if (MemberService.Delete.equalsIgnoreCase(columnName)) {
+
+                System.out.println("Deleting " + data.getMemberName());
+                memberService.deleteMember(data);
+
+                // refresh view
+                updateTable();
+            } else if (MemberService.Edit.equalsIgnoreCase(columnName)) {
+                System.out.println("Editing " + data.getMemberName());
+                dialogStage = showDialog("add_member");
+            } else if (MemberService.PAY.equalsIgnoreCase(columnName)) {
+                System.out.println("Paying " + data.getMemberName());
+                dialogStage = showDialog("pay");
+            } else if (MemberService.VIEW_CONTRIBUTIONS.equalsIgnoreCase(columnName)) {
+                System.out.println("View Contributions " + data.getMemberName());
+                dialogStage = showDialog("member_contributions");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+    private void refreshView(){
+        this.initialize(this.location, this.resources);
+    }
 
 
     @FXML
@@ -99,8 +184,51 @@ public class Controller implements Initializable {
             lblContent.setText("Members");
             paneMembers.toFront();
 
+        } else if(event.getSource() == btnShowAddMember){
+             dialogStage = showDialog("add_member");
+         } else if(event.getSource() == btnAddMember){
+             System.out.println(dialogStage);
+             if(!txtMembershipNo.getCharacters().toString().equalsIgnoreCase("")){
+                 Member member = new Member(txtMembershipNo.getCharacters().toString() ,txtName.getCharacters().toString());
+                 System.out.println(member);
+
+                 try {
+                     memberService.addMember(member);
+                     dialogStage.close();
+                     initialize(location, resources);
+                 } catch (Exception e){
+                     e.printStackTrace();
+                 }
+
+             } else {
+                 dialogStage.close();
+             }
+
+         }
+    }
+
+    private Stage showDialog(String fxml){
+        try{
+            System.out.println("../fxml/" + fxml + ".fxml");
+            Parent parent = FXMLLoader.load(getClass().getResource("../fxml/" + fxml + ".fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(parent);
+            stage.setScene(scene);
+            stage.setResizable(true);
+
+            stage.setAlwaysOnTop(true);
+            stage.setX(pStage.getX() + pStage.getHeight()/2);
+            stage.setY(pStage.getY() + pStage.getWidth()/3 );
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.show();
+            return stage;
+        } catch (IOException e){
+            e.printStackTrace();
+            return null;
         }
     }
+
+
 
 
 }

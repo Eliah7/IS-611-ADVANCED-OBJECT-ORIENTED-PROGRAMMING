@@ -2,10 +2,7 @@ package home.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.QueryDocumentSnapshot;
-import com.google.cloud.firestore.QuerySnapshot;
+import com.google.cloud.firestore.*;
 import home.domain.Member;
 import home.domain.MonthlyPaymentList;
 
@@ -51,7 +48,7 @@ public class MemberRepository extends Repository<Member>{
 
     @Override
     public boolean add(Member element) throws Exception {
-        DocumentReference docRef = this.databaseConnector.db.collection(COLLECTION_NAME).document();
+        DocumentReference docRef = this.databaseConnector.db.collection(COLLECTION_NAME).document(element.getMembershipNumber());
 
         Map<String, Object> data = new HashMap<>();
         data.put("memberName", element.getMemberName());
@@ -62,5 +59,17 @@ public class MemberRepository extends Repository<Member>{
         ApiFuture<com.google.cloud.firestore.WriteResult> result = docRef.set(data);
         result.get();
         return result.isDone();
+    }
+
+    @Override
+    public boolean delete(Member member) throws Exception{
+        ApiFuture<WriteResult> writeResult = this.databaseConnector.db.collection(COLLECTION_NAME).document(member.getMembershipNumber()).delete();
+        System.out.println("Deleted at time : " + writeResult.get().getUpdateTime());
+        return writeResult.isDone();
+    }
+
+    @Override
+    public int size() {
+        return 0;
     }
 }
