@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="guava-annotations-r03">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/jar_files (1)/guava-annotations-r03.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files (1)/guava-base-r03.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files (1)/guava-collections-r03.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files (1)/guava-concurrent-r03.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/jar_files (1)/guava-primitives-r03.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

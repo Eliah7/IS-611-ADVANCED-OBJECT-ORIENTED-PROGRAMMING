@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="netty-all-4.1.73.Final">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/Downloads/netty-all-4.1.73.Final.jar!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/netty-all-4.1.73.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Downloads/netty-all-4.1.73.Final.jar!/" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="jar://$USER_HOME$/Downloads/netty-all-4.1.73.Final.jar!/" />
+    </NATIVE>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Downloads/netty-all-4.1.73.Final.jar!/" />
+    </SOURCES>
+    <jarDirectory url="jar://$USER_HOME$/Downloads/netty-all-4.1.73.Final.jar!/" recursive="false" />
+    <jarDirectory url="jar://$USER_HOME$/Downloads/netty-all-4.1.73.Final.jar!/" recursive="false" type="SOURCES" />
+  </library>
+</component>

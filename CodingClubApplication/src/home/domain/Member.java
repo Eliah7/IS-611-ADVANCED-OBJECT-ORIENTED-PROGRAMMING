@@ -19,6 +19,18 @@ public class Member {
         this.monthlyPaymentList = new MonthlyPaymentList();
     }
 
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
+    }
+
+    public void setMembershipNumber(String membershipNumber) {
+        this.membershipNumber = membershipNumber;
+    }
+
+    public void setMonthlyPaymentList(MonthlyPaymentList monthlyPaymentList) {
+        this.monthlyPaymentList = monthlyPaymentList;
+    }
+
     /**
      * Constructor that accept membershipNo as param
      * @param membershipNumber

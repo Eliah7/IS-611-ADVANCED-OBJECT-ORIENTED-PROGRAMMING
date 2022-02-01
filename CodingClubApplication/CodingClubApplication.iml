@@ -11,5 +11,61 @@
     <orderEntry type="library" name="connect-2.0.1" level="project" />
     <orderEntry type="library" name="charm-glisten-6.0.6" level="project" />
     <orderEntry type="library" name="jfoenix-9.0.10" level="project" />
+    <orderEntry type="library" name="firebase-admin-8.1.0" level="project" />
+    <orderEntry type="library" name="google-auth-library-oauth2-http-1.4.0" level="project" />
+    <orderEntry type="library" name="google-cloud-firestore-3.0.11" level="project" />
+    <orderEntry type="library" name="google-auth-library-credentials-1.4.0" level="project" />
+    <orderEntry type="library" name="google-cloud-storage-2.3.0" level="project" />
+    <orderEntry type="library" name="google-cloud-core-2.4.0" level="project" />
+    <orderEntry type="library" name="api-common-2.1.3" level="project" />
+    <orderEntry type="library" name="guava-31.0.1-jre" level="project" />
+    <orderEntry type="library" name="google-api-client-1.33.1" level="project" />
+    <orderEntry type="library" name="google-http-client-1.41.2" level="project" />
+    <orderEntry type="library" name="gson-2.8.9" level="project" />
+    <orderEntry type="library" name="google-cloud-bigquery-2.7.0" level="project" />
+    <orderEntry type="library" name="google-http-client-gson-1.41.2" level="project" />
+    <orderEntry type="library" name="google-http-client-jackson2-1.41.2" level="project" />
+    <orderEntry type="library" name="jackson-core-2.13.1" level="project" />
+    <orderEntry type="library" name="slf4j-api-1.7.35" level="project" />
+    <orderEntry type="library" name="gax-2.12.0" level="project" />
+    <orderEntry type="library" name="threetenbp-1.5.2" level="project" />
+    <orderEntry type="library" name="google-cloud-core-grpc-2.4.0" level="project" />
+    <orderEntry type="library" name="grpc-all-1.44.0" level="project" />
+    <orderEntry type="library" name="grpc-core-1.44.0" level="project" />
+    <orderEntry type="library" name="gax-grpc-2.12.0" level="project" />
+    <orderEntry type="library" name="grpc-protobuf-1.44.0" level="project" />
+    <orderEntry type="library" name="grpc-services-1.44.0" level="project" />
+    <orderEntry type="library" name="grpc-netty-1.44.0" level="project" />
+    <orderEntry type="library" name="grpc-api-1.44.0" level="project" />
+    <orderEntry type="library" name="opencensus-testing-0.31.0" level="project" />
+    <orderEntry type="library" name="opencensus-api-0.31.0" level="project" />
+    <orderEntry type="library" name="google-cloud-firestore-3.0.111" level="project" />
+    <orderEntry type="library" name="grpc-google-cloud-firestore-v1-3.0.11" level="project" />
+    <orderEntry type="library" name="proto-google-cloud-firestore-v1-3.0.11" level="project" />
+    <orderEntry type="library" name="netty-all-4.1.73.Final" level="project" />
+    <orderEntry type="library" name="netty-transport-4.1.73.Final" level="project" />
+    <orderEntry type="library" name="netty-buffer-4.1.73.Final" level="project" />
+    <orderEntry type="library" name="netty-handler-4.1.73.Final" level="project" />
+    <orderEntry type="library" name="netty-transport-4.1.73.Final1" level="project" />
+    <orderEntry type="library" name="netty-codec-http-4.1.73.Final" level="project" />
+    <orderEntry type="library" name="netty-codec-4.1.73.Final" level="project" />
+    <orderEntry type="library" name="netty-common-4.1.73.Final" level="project" />
+    <orderEntry type="library" name="netty-codec-http2-4.1.73.Final" level="project" />
+    <orderEntry type="library" name="grpc-auth-1.44.0" level="project" />
+    <orderEntry type="library" name="protobuf-java-3.19.4" level="project" />
+    <orderEntry type="library" name="protobuf-lite-3.0.1" level="project" />
+    <orderEntry type="library" name="protobuf-java-util-3.19.4" level="project" />
+    <orderEntry type="library" name="grpc-protobuf-lite-1.44.0" level="project" />
+    <orderEntry type="library" name="grpc-google-longrunning-v1-0.1.24" level="project" />
+    <orderEntry type="library" name="proto-google-longrunning-v1-0.1.24" level="project" />
+    <orderEntry type="library" name="proto-google-common-protos-2.7.2" level="project" />
+    <orderEntry type="library" name="grpc-context-1.44.0" level="project" />
+    <orderEntry type="library" name="guava-annotations-r03" level="project" />
+    <orderEntry type="library" name="failureaccess-1.0.1" level="project" />
+    <orderEntry type="library" name="netty-resolver-4.1.73.Final" level="project" />
+    <orderEntry type="library" name="perfmark-api-0.24.0" level="project" />
+    <orderEntry type="library" name="grpc-stub-1.44.0" level="project" />
+    <orderEntry type="library" name="opencensus-contrib-http-util-0.31.0" level="project" />
+    <orderEntry type="library" name="databind-2.7.4" level="project" />
   </component>
 </module>

@@ -15,7 +15,7 @@ public class Main extends Application {
         primaryStage.setTitle("Club Application");
         primaryStage.setResizable(true);
 //        primaryStage.initStyle(StageStyle.TRANSPARENT);
-        primaryStage.setScene(new Scene(root, 1000, 700));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 

@@ -19,9 +19,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="670.0" styleClass="main" stylesheets="@../assets/css/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controllers.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="main" stylesheets="@../assets/css/main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controllers.Controller">
    <children>
-      <VBox fx:id="mainContainer" prefHeight="436.0" prefWidth="163.0" spacing="20.0">
+      <VBox fx:id="mainContainer" spacing="20.0">
          <children>
             <Pane prefHeight="94.0" prefWidth="155.0">
                <children>
@@ -64,20 +64,6 @@
             </Pane>
             <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0" stylesheets="@../assets/css/main.css">
                <children>
-                  <JFXButton fx:id="btnDashboard" buttonType="RAISED" onAction="#handleClicks" prefHeight="31.0" prefWidth="167.0">
-                     <graphic>
-                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0">
-                           <children>
-                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-                                 <image>
-                                    <Image url="@../assets/images/dashboard_black_24dp%201.png" />
-                                 </image>
-                              </ImageView>
-                              <Label minHeight="-Infinity" minWidth="-Infinity" text="Dashboard" textFill="WHITE" />
-                           </children>
-                        </HBox>
-                     </graphic>
-                  </JFXButton>
                   <JFXButton fx:id="btnMembers" buttonType="RAISED" onAction="#handleClicks" prefHeight="31.0" prefWidth="167.0">
                      <graphic>
                         <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0">
@@ -88,20 +74,6 @@
                                  </image>
                               </ImageView>
                               <Label minHeight="-Infinity" minWidth="-Infinity" text="Members" textFill="WHITE" />
-                           </children>
-                        </HBox>
-                     </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="btnContribution" buttonType="RAISED" onAction="#handleClicks" prefHeight="31.0" prefWidth="167.0">
-                     <graphic>
-                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0">
-                           <children>
-                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-                                 <image>
-                                    <Image url="@../assets/images/list_black_24dp%201.png" />
-                                 </image>
-                              </ImageView>
-                              <Label minHeight="-Infinity" minWidth="-Infinity" text="Contribution" textFill="WHITE" />
                            </children>
                         </HBox>
                      </graphic>
@@ -120,55 +92,32 @@
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Pane fx:id="paneContributions" layoutY="29.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label fx:id="lblContent11" styleClass="lbl-members" stylesheets="@../assets/css/main.css" text="Contributions" textFill="#8962c2">
-                           <font>
-                              <Font size="26.0" />
-                           </font>
-                           <padding>
-                              <Insets top="10.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                     <styleClass>
-                        <String fx:value="contributions" />
-                        <String fx:value="content" />
-                     </styleClass>
-                  </Pane>
-                  <Pane fx:id="paneDashboard" layoutY="29.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label fx:id="lblContent111" styleClass="lbl-members" stylesheets="@../assets/css/main.css" text="Dashboard" textFill="#8962c2">
-                           <font>
-                              <Font size="26.0" />
-                           </font>
-                           <padding>
-                              <Insets top="10.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                     <styleClass>
-                        <String fx:value="contributions" />
-                        <String fx:value="content" />
-                     </styleClass>
-                  </Pane>
                   <Pane fx:id="paneMembers" layoutY="29.0" stylesheets="@../assets/css/main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="lblContent1" styleClass="lbl-members" stylesheets="@../assets/css/main.css" text="Members" textFill="#8962c2">
-                           <font>
-                              <Font size="26.0" />
-                           </font>
-                           <padding>
-                              <Insets top="10.0" />
-                           </padding>
-                        </Label>
-                        <TableView fx:id="membersTable" layoutY="44.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="507.0">
-                          <columns>
-                            <TableColumn fx:id="tbclRegistrationNo" prefWidth="75.0" text="No" />
-                            <TableColumn fx:id="tbclName" prefWidth="75.0" text="Name" />
-                              <TableColumn fx:id="tbclActions" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="78.0" text="Actions" />
-                          </columns>
-                        </TableView>
+                        <VBox style="-fx-background-color: #ffff;">
+                           <children>
+                              <Label fx:id="lblContent1" styleClass="lbl-members" stylesheets="@../assets/css/main.css" text="Members" textFill="#8962c2">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </Label>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="action-tab">
+                                 <children>
+                                    <JFXButton ripplerFill="#6460da" styleClass="btn" text="ADD MEMBER" textFill="WHITE" />
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="membersTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="700.0" style="-fx-border-color: #fff; -fx-background-color: #fff;">
+                                <columns>
+                                  <TableColumn fx:id="tbclRegistrationNo" prefWidth="116.85200500488281" text="No" />
+                                  <TableColumn fx:id="tbclName" prefWidth="372.64794921875" text="Name" />
+                                    <TableColumn fx:id="tbclActions" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="210.49923706054688" text="Actions" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
                      </children>
                      <styleClass>
                         <String fx:value="members" />

@@ -24,11 +24,25 @@ public class MonthlyPaymentList {
         this.monthlyPayments = new ArrayList<>();
     }
 
+    public int getnMAX() {
+        return nMAX;
+    }
+
+    public ArrayList<MonthlyPayment> getMonthlyPayments() {
+        return monthlyPayments;
+    }
+
+    public void setMonthlyPayments(ArrayList<MonthlyPayment> monthlyPayments) {
+        this.monthlyPayments = monthlyPayments;
+    }
+
     /**
      * Adds new payment to the payment list
      * @param payment
      * @return boolean
      */
+
+
     public Boolean add(MonthlyPayment payment){
         // check if monthly payment month <= 12 and > 1
         if(!(payment.getMonth() >= 1 && payment.getMonth() <= 12)){

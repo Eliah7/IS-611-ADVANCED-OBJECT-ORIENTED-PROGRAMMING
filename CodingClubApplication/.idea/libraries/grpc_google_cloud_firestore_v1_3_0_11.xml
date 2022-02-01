@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="grpc-google-cloud-firestore-v1-3.0.11">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/grpc-google-cloud-firestore-v1-3.0.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
