@@ -104,9 +104,10 @@
                                     <Insets top="10.0" />
                                  </padding>
                               </Label>
-                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="action-tab">
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="action-tab">
                                  <children>
                                     <JFXButton fx:id="btnShowAddMember" onAction="#handleClicks" ripplerFill="#6460da" styleClass="btn" text="ADD MEMBER" textFill="WHITE" />
+                                    <JFXButton fx:id="btnRefreshPage" onAction="#handleClicks" ripplerFill="#6460da" styleClass="btn" text="REFRESH" textFill="WHITE" />
                                  </children>
                               </HBox>
                               <TableView fx:id="membersTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: #fff; -fx-background-color: #fff;">

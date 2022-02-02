@@ -55,6 +55,9 @@ public class Controller implements Initializable {
     private JFXButton btnAddMember;
 
     @FXML
+    private JFXButton btnRefreshPage;
+
+    @FXML
     private TextField txtMembershipNo;
 
     @FXML
@@ -78,7 +81,12 @@ public class Controller implements Initializable {
         try {
             if(location.getPath().contains("home/fxml/add_member.fxml")){
 
-            } else {
+            } else if(location.getPath().contains("home/fxml/member_contributions.fxml")){
+
+            }
+            else if(location.getPath().contains("home/fxml/pay.fxml")){
+
+            }else{
                 updateTable();
                 System.out.println(memberService.getAllMembers());
 //            System.out.println(memberRepository.add(new Member("33434", "Jane Mbwilo")));
@@ -157,7 +165,10 @@ public class Controller implements Initializable {
                 updateTable();
             } else if (MemberService.Edit.equalsIgnoreCase(columnName)) {
                 System.out.println("Editing " + data.getMemberName());
+
                 dialogStage = showDialog("add_member");
+//                txtName.setText(data.getMemberName());
+//                txtMembershipNo.setText(data.getMembershipNumber());
             } else if (MemberService.PAY.equalsIgnoreCase(columnName)) {
                 System.out.println("Paying " + data.getMemberName());
                 dialogStage = showDialog("pay");
@@ -195,13 +206,22 @@ public class Controller implements Initializable {
                  try {
                      memberService.addMember(member);
                      dialogStage.close();
-                     initialize(location, resources);
+//                     btnRefreshPage.fire();
+//                     updateTable();
                  } catch (Exception e){
                      e.printStackTrace();
                  }
 
              } else {
                  dialogStage.close();
+             }
+
+         } else if(event.getSource() == btnRefreshPage){
+             System.out.println("Refreshing page");
+             try {
+                 updateTable();
+             }catch (Exception e){
+                 e.printStackTrace();
              }
 
          }
