@@ -2,20 +2,21 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" fx:controller="home.controllers.Controller" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="305.0" prefWidth="213.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="305.0" prefWidth="213.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controllers.Controller">
    <children>
       <VBox prefHeight="305.0" prefWidth="213.0" spacing="30.0">
          <children>
             <Label text="Month" />
-            <TextField prefHeight="0.0" prefWidth="163.0" />
+            <ComboBox fx:id="cbxMonth" prefWidth="150.0" promptText="Month" />
             <Label text="Amount" />
-            <TextField prefHeight="0.0" prefWidth="163.0" />
-            <JFXButton prefHeight="26.0" prefWidth="241.0" styleClass="btn" stylesheets="@../assets/css/main.css" text="Add Payment" textFill="WHITE" />
+            <TextField fx:id="txtAmountAddPayment" prefHeight="0.0" prefWidth="163.0" />
+            <JFXButton fx:id="btnAddPaymentModal" onAction="#handleClicks" prefHeight="26.0" prefWidth="241.0" styleClass="btn" stylesheets="@../assets/css/main.css" text="Add Payment" textFill="WHITE" />
          </children>
          <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />

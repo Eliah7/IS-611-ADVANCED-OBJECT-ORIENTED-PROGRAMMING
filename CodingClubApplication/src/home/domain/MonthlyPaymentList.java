@@ -28,6 +28,8 @@ public class MonthlyPaymentList {
         return nMAX;
     }
 
+
+
     public ArrayList<MonthlyPayment> getMonthlyPayments() {
         return monthlyPayments;
     }
@@ -45,9 +47,9 @@ public class MonthlyPaymentList {
 
     public Boolean add(MonthlyPayment payment){
         // check if monthly payment month <= 12 and > 1
-        if(!(payment.getMonth() >= 1 && payment.getMonth() <= 12)){
-            return false;
-        }
+//        if(!(Integer.parseInt(payment.getMonth()) >= 1 && Integer.parseInt(payment.getMonth()) <= 12)){
+//            return false;
+//        }
         // check if monthly payment not in monthlyPayments
         for (MonthlyPayment monthlyPayment: this.monthlyPayments) {
             if(monthlyPayment.getMonth() == payment.getMonth()){

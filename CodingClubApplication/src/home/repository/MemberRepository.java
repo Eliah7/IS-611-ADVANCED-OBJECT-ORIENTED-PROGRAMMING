@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import home.domain.Member;
+import home.domain.MonthlyPayment;
 import home.domain.MonthlyPaymentList;
 
 import java.util.ArrayList;
@@ -37,7 +38,9 @@ public class MemberRepository extends Repository<Member>{
             }
 
             if (document.contains("monthlyPaymentList")){
-                member.setMonthlyPaymentList((MonthlyPaymentList) document.get("monthlyPaymentList;"));
+                ObjectMapper mapper = new ObjectMapper(); // jackson's objectmapper
+                MonthlyPaymentList result = mapper.convertValue( document.get("monthlyPaymentList"), MonthlyPaymentList.class);
+                member.setMonthlyPaymentList(result);
             }
 
             members.add(member);

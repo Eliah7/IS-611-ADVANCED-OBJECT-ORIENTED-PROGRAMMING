@@ -4,13 +4,12 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" fx:controller="home.controllers.Controller" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.controllers.Controller">
    <children>
-      <TableView layoutX="-2.0" prefHeight="400.0" prefWidth="600.0">
+      <TableView fx:id="contributionsTable" layoutX="-2.0" prefHeight="400.0" prefWidth="600.0">
         <columns>
-          <TableColumn prefWidth="167.0" text="Month" />
-          <TableColumn prefWidth="432.0" text="Amount" />
+          <TableColumn fx:id="tbclMonth" prefWidth="167.0" text="Month" />
+          <TableColumn fx:id="tbclAmountContributions" prefWidth="432.0" text="Amount" />
         </columns>
       </TableView>
    </children>

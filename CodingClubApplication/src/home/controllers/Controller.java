@@ -2,6 +2,8 @@ package home.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import home.domain.Member;
+import home.domain.MonthlyPayment;
+import home.domain.MonthlyPaymentList;
 import home.repository.MemberRepository;
 import home.services.MemberService;
 import javafx.collections.FXCollections;
@@ -22,7 +24,8 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.text.DateFormatSymbols;
+import java.util.*;
 
 public class Controller implements Initializable {
     @FXML
@@ -38,6 +41,15 @@ public class Controller implements Initializable {
 
     @FXML
     private TableView<Member> membersTable;
+
+    @FXML
+    private TableView<MonthlyPayment> contributionsTable;
+
+    @FXML
+    private TableColumn<MonthlyPayment, String> tbclAmountContributions;
+
+    @FXML
+    private TableColumn<MonthlyPayment, String> tbclMonth;
 
     @FXML
     private TableColumn<Member, String> tbclActions;
@@ -61,7 +73,18 @@ public class Controller implements Initializable {
     private TextField txtMembershipNo;
 
     @FXML
+    private ComboBox<String> cbxMonth;
+
+    @FXML
     private TextField txtName;
+
+
+    @FXML
+    private TextField txtAmountAddPayment;
+
+
+    @FXML
+    private JFXButton btnAddPaymentModal;
 
     private ObservableList<Member> data;
 
@@ -70,6 +93,7 @@ public class Controller implements Initializable {
     private ResourceBundle resources;
     private MemberService memberService;
     private static Stage dialogStage;
+    private static Member selectedMember;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,12 +104,35 @@ public class Controller implements Initializable {
         memberService = new MemberService();
         try {
             if(location.getPath().contains("home/fxml/add_member.fxml")){
+                if(selectedMember != null){
+                    txtName.setText(selectedMember.getMemberName());
+                    txtMembershipNo.setText(selectedMember.getMembershipNumber());
+                    btnAddMember.setText("Edit Member");
+//                    selectedMember = null;
+                }
 
             } else if(location.getPath().contains("home/fxml/member_contributions.fxml")){
+                tbclMonth.setCellValueFactory(new PropertyValueFactory<>("month"));
+                tbclAmountContributions.setCellValueFactory(new PropertyValueFactory<>("amount"));
 
+                System.out.println("Selected member payment list" + selectedMember);
+                System.out.println("Monthly payment list " +  selectedMember.getMonthlyPaymentList());
+
+                contributionsTable.setItems
+                        (FXCollections.observableArrayList(
+                                selectedMember.getMonthlyPaymentList() != null?
+                                selectedMember.getMonthlyPaymentList().getMonthlyPayments() :
+                                new ArrayList()));
             }
             else if(location.getPath().contains("home/fxml/pay.fxml")){
+                if(selectedMember != null){
+                    // set the combobox values to days of the month
+                    String[] months = new DateFormatSymbols().getMonths();
+                    cbxMonth.setItems(FXCollections.observableArrayList(months));
 
+
+//                    selectedMember = null;
+                }
             }else{
                 updateTable();
                 System.out.println(memberService.getAllMembers());
@@ -160,27 +207,25 @@ public class Controller implements Initializable {
 
                 System.out.println("Deleting " + data.getMemberName());
                 memberService.deleteMember(data);
-
                 // refresh view
                 updateTable();
             } else if (MemberService.Edit.equalsIgnoreCase(columnName)) {
                 System.out.println("Editing " + data.getMemberName());
-
+                selectedMember = data;
                 dialogStage = showDialog("add_member");
-//                txtName.setText(data.getMemberName());
-//                txtMembershipNo.setText(data.getMembershipNumber());
             } else if (MemberService.PAY.equalsIgnoreCase(columnName)) {
+                selectedMember = data;
                 System.out.println("Paying " + data.getMemberName());
                 dialogStage = showDialog("pay");
+                System.out.println("Selected " + selectedMember);
             } else if (MemberService.VIEW_CONTRIBUTIONS.equalsIgnoreCase(columnName)) {
+                selectedMember = data;
                 System.out.println("View Contributions " + data.getMemberName());
                 dialogStage = showDialog("member_contributions");
             }
         }catch (Exception e){
             e.printStackTrace();
         }
-
-
 
     }
 
@@ -196,6 +241,7 @@ public class Controller implements Initializable {
             paneMembers.toFront();
 
         } else if(event.getSource() == btnShowAddMember){
+             selectedMember = null;
              dialogStage = showDialog("add_member");
          } else if(event.getSource() == btnAddMember){
              System.out.println(dialogStage);
@@ -220,6 +266,23 @@ public class Controller implements Initializable {
              System.out.println("Refreshing page");
              try {
                  updateTable();
+             }catch (Exception e){
+                 e.printStackTrace();
+             }
+
+         } else if(event.getSource() == btnAddPaymentModal){
+             // add payment for member
+             try {
+                 System.out.println("Refreshing page " + selectedMember);
+                 System.out.println(txtAmountAddPayment.getText() + " " + cbxMonth.getValue());
+                 MonthlyPaymentList monthlyPaymentList = selectedMember.getMonthlyPaymentList() != null? selectedMember.getMonthlyPaymentList(): new MonthlyPaymentList();
+                 monthlyPaymentList.add(new MonthlyPayment(Double.parseDouble(txtAmountAddPayment.getText()), cbxMonth.getValue()));
+                 selectedMember.setMonthlyPaymentList(monthlyPaymentList);
+
+                 memberService.addMember(selectedMember);
+//                 selectedMember = null;
+
+                 dialogStage.close();
              }catch (Exception e){
                  e.printStackTrace();
              }

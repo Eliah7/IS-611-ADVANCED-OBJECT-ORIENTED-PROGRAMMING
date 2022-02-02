@@ -4,18 +4,37 @@ public class MonthlyPayment {
      * attributes
      */
     private Double amount;
-    private int month;
+    private String month;
 
     /**
      * Constructor
      * @param amount
      * @param month
      */
-    public MonthlyPayment(Double amount, int month)  {
+    MonthlyPayment(){
+
+    }
+
+    public MonthlyPayment(Double amount, String month)  {
 
             this.amount = amount;
             this.month = month;
 
+    }
+
+    public MonthlyPayment(Double amount, int month)  {
+
+        this.amount = amount;
+        this.month = Integer.toString(month);
+
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
     }
 
     /**
@@ -30,7 +49,7 @@ public class MonthlyPayment {
      * Returns month of payment
      * @return
      */
-    public int getMonth() {
+    public String getMonth() {
         return month;
     }
 
